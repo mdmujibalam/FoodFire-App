@@ -1,3 +1,11 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "PT Sans", Calibri, sans-serif;
+  overflow-x: hidden;
+}
+
 .header{
   border: 1px solid black;
   display: flex;
@@ -34,9 +42,9 @@
 }
 
 .card{
-  width: 300px;
+  width: 240px;
   border-radius: 5px;
-  box-shadow: -1px 4px 20px 14px rgba(0, 0, 0, 0.2);
+  box-shadow: -1px 5px 10px 5px rgba(112,112,112,.2);
   padding: 10px;
   margin: 20px;
   cursor: pointer;
@@ -47,22 +55,31 @@
   border-radius: 10px;
 }
 
-.card > span{
-  display: flex;
-  justify-content: space-evenly;
+.card>h5 {
+  font-weight: lighter;
 }
 
-.card > span > h4{
-  text-align: center;
+.card > span{
+  display: flex;
+  justify-content: space-between;
 }
+
+ .card > span > h4{
+  text-align: center;
+  color: var(--light-text-title);
+    margin-top: 10px;
+    padding: 0 2px;
+    font-size: 14px;
+    font-weight: bolder;
+} 
 
 .card > span > h4:first-child{
   /* display: flex; */
   align-items: center;
-  background-color: rgb(19, 176, 1);
+  /* background-color: rgb(19, 176, 1); */
   border-radius: 5px;
   padding: 0 5px 0;
-  color: white;
+  color:black;
 }
 
 .card > span > h4:first-child .fa-star{
@@ -71,6 +88,38 @@
 }
 
 
+
+
+.shimmer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+.shimmer-card {
+  flex-basis: 240px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-color: #d3d5df;
+  box-shadow: 0 4px 7px 0 rgba(66, 73, 107, 0.6);
+}
+.shimmer-title {
+  width: 60%;
+  margin-top: 10px;
+}
+.shimmer-tags {
+  width: 80%;
+  margin-top: 4px;
+}
+.shimmer-details {
+  width: 100%;
+  margin-top: 18px;
+}
+.shimmer-container .shimmer-img {
+  height: 144px;
+  width: 230px;
+  background-color: grey;
+}
 
 
 /* Footer CSS*/

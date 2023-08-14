@@ -1,5 +1,9 @@
-import React, { useState } from "react"
-import "../index"
+import React, { useState } from "react";
+import "../index";
+import { Link } from "react-router-dom";
+import About from "./About";
+import Contact from "./Contact";
+import Cart from "./Cart";
 
 const Title= ()=>{
 
@@ -24,10 +28,11 @@ const Header = () => {
         
         <div className="nav-items">
          <ul>
-          <li>Home</li>
-          <li>About </li>
-          <li>Contact</li>
-          <li>Cart</li>
+
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link> </li>
+          <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/cart">Cart</Link></li>
          </ul>
         </div>
   

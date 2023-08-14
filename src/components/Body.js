@@ -4,6 +4,8 @@ import { restaurantList } from "../constant";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { NotMatchFound } from "../constant";
+import { IMG_CDN_URL } from "../constant";
+import { SWIGGY_API_URL } from "../constant";
 
 
 
@@ -22,30 +24,44 @@ const Body = () =>{
  const [filteredRestaurants,setFilteredRestaurants]=useState([]);
  const [allRestaurants,setAllRestaurants]=useState([]);
 
+ useEffect(()=>{
+   console.log(allRestaurants);
+ },[allRestaurants])
  
+ 
+
+ async function getRestaurants() {
+ const response=await fetch( SWIGGY_API_URL);
+ const jsonData = await response.json();
+
+  function checkJsonData(jsonData) {
+  for (let i = 0; i < jsonData?.data?.cards?.length; i++) {
+
+    // initialize checkData for Swiggy Restaurant data using optional chaining
+    let checkData = jsonData?.data?.cards[i]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+    // if checkData is not undefined then return it
+    if (checkData !== undefined) return checkData;
+    
+  }
+}
+
+ const resData =checkJsonData(jsonData);
+    //console.log(json);
+
+  setAllRestaurants(resData);
+  setFilteredRestaurants(resData);
+
+ }
+
  useEffect(()=>{
  // API Call
  getRestaurants();
  },[]);
-
- async function getRestaurants() {
- const data=await fetch( "https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.1702401&lng=72.83106070000001&page_type=DESKTOP_WEB_LISTING");
-
- const json = await data.json();
-    //console.log(json);
-
-    // Optional Chaining
-  setAllRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-  setFilteredRestaurants(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-
- }
  
 
     //Not render -> Early Return
     if(!allRestaurants)return null;
-
-    // if (filteredRestaurants?.length === 0)return <h1>No restaurant matches your search !!!</h1>;
-
 
     return allRestaurants?.length === 0 ? (<Shimmer/> ):
     (
