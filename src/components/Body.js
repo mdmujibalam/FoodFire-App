@@ -6,6 +6,7 @@ import Shimmer from "./Shimmer";
 import { NotMatchFound } from "../constant";
 import { IMG_CDN_URL } from "../constant";
 import { SWIGGY_API_URL } from "../constant";
+import { Link } from "react-router-dom";
 
 
 
@@ -88,7 +89,14 @@ const Body = () =>{
        allRestaurants.length ===0  ? (<Shimmer/>): filteredRestaurants.length === 0 ? (<NotMatchFound/>):
 
        (filteredRestaurants.map((restaurant)=>{
-        return (<RestaurantCard key={restaurant?.info?.id} {...restaurant?.info} />);
+        return (
+
+          <Link to={"/restaurantmenu/"+restaurant?.info?.id} key={restaurant?.info?.id}>
+          
+        <RestaurantCard  {...restaurant?.info} />
+           </Link>
+        
+        );
        }))
        
      }
