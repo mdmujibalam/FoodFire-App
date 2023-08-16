@@ -29,6 +29,7 @@
   padding:10px;
   font-size: large;
   cursor: pointer;
+  text-decoration: none !important;
 }
 
 
@@ -48,6 +49,7 @@
   padding: 10px;
   margin: 20px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .card > img{
@@ -86,6 +88,52 @@
   font-size: small;
   padding: 0 5px 3px 0;
 }
+
+
+/* Restaurant Menu */
+
+.menu{
+  display:flex;
+  justify-content: space-evenly;
+  margin:auto;
+  margin-bottom: 20px;
+  /* margin:40px 200px;
+  box-sizing: border-box; */
+
+}
+.item-description-header{
+  
+}
+
+.item-img{
+  width:150px;
+  height:100px
+}
+
+.item-img> img{
+  width: 100%;
+  border-radius: 10px;
+}
+
+
+
+
+
+.RestaurantHeader_dottedSeparator__2O2hU {
+  border: none;
+  border-bottom: 1px dashed #d3d3d3;
+}
+
+.item-description-details > ul{
+  display:flex;
+  justify-content: space-evenly;
+  margin: auto;
+}
+
+.item-description-details > ul > li{
+  margin:10px;
+}
+
 
 
 

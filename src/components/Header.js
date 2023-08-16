@@ -26,13 +26,12 @@ const Header = () => {
         
         <Title/>
         
-        <div className="nav-items">
-         <ul>
-
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link> </li>
-          <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/cart">Cart</Link></li>
+        <div className="nav-items" >
+        <ul>
+          <li><Link to="/" style={{textDecoration:"none", color:"black"}}>Home</Link></li>
+          <li><Link to="/about" style={{textDecoration:"none", color:"black"}}>About</Link> </li>
+          <li><Link to="/contact" style={{textDecoration:"none", color:"black"}}>Contact</Link></li>
+          <li><Link to="/cart" style={{textDecoration:"none", color:"black"}}>Cart</Link></li>
          </ul>
         </div>
   
